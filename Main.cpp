@@ -1,66 +1,54 @@
 #include<iostream>
 #include<queue>
-
+#include"Main.h"
 using namespace std;
 
-// ---------------- Edit these constraints as per requirement-------------------//
-
-const int NUM=3;
-const int MAX[NUM] = {5,2,3};
-const int MAX_ITERATIONS = 100;
-
-// ---------------------------------------------------------------------------//
 
 
-
-//Class of buckets 
-class buks{
-    public:
-    int arr[NUM];
-    int depth;
-    buks() = default;
-    buks(int* arra){
-        for(int i=0;i<NUM;i++){
-            arr[i] = arra[i];
-        }
-        depth = 0;
+template <typename T>
+buks<T>::buks(int* arra){
+    for(int i=0;i<NUM;i++){
+        arr[i] = arra[i];
     }
+    depth = 0;
+}
 
-
-    bool operator!=(buks t){
-        for(int i=0;i<NUM;i++){
-            if(arr[i]!=t.arr[i]) return true;
-        }
-        return false;
+template <typename T>
+bool buks<T>::operator!=(buks<T> t){
+    for(int i=0;i<NUM;i++){
+        if(arr[i]!=t.arr[i]) return true;
     }
+    return false;
+}
 
-    buks neighbour(int i, int j){
-        
-        if(arr[j]==MAX[j]){
-            buks ans;
-            ans = *this;
-            return ans;
-        }
-        else if(arr[j]+arr[i]<=MAX[j]){
-            buks ans = *this;
-            ans.arr[i]=0;
-            ans.arr[j]=arr[j]+arr[i];
-            return ans;
-        }
-        else{
-            buks ans = *this;
-            ans.arr[i] = arr[i] - MAX[j] + arr[j];
-            ans.arr[j] = MAX[j];
-            return ans;
-
-        }
+template <typename T>
+buks<T> buks<T>::neighbour(int i, int j){
+    
+    if(arr[j]==MAX[j]){
+        buks<T> ans;
+        ans = *this;
+        return ans;
     }
+    else if(arr[j]+arr[i]<=MAX[j]){
+        buks<T> ans = *this;
+        ans.arr[i]=0;
+        ans.arr[j]=arr[j]+arr[i];
+        return ans;
+    }
+    else{
+        buks<T> ans = *this;
+        ans.arr[i] = arr[i] - MAX[j] + arr[j];
+        ans.arr[j] = MAX[j];
+        return ans;
+
+    }
+}
 
 
-};
+
 
 //Operator to print current state
-ostream& operator<<(ostream& os, const buks& b)
+template <typename T> ostream& operator<<(ostream& os, const buks<T>& b)
 {
     os <<b.depth<<": ("<<b.arr[0]<<", "<<b.arr[1]<<", "<<b.arr[2]<<") "<<endl;
     return os;
@@ -96,13 +84,13 @@ int main()
         }
 
     }
-    buks a(x);
+    buks<int> a(x);
 
-    queue<buks> list;
+    queue<buks<int>> list;
     list.push(a);
     int iter = MAX_ITERATIONS;
     while(iter--){
-        buks y,z;
+        buks<int> y,z;
         y = list.front();
         for(int m=0; m<NUM;m++){
             checker[y.arr[m]]= min(checker[y.arr[m]],y.depth);
