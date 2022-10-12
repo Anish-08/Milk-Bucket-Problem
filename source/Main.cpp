@@ -1,6 +1,6 @@
 #include<iostream>
 #include<queue>
-#include"Main.h"
+#include"../include/Main.h"
 using namespace std;
 
 
