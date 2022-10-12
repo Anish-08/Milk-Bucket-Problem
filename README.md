@@ -1,3 +1,5 @@
 # Milk-Bucket-Problem
 ## A Bread First search to solve the famous Milk Bucket Problem :
-Given n buckets of varying capacities and different starting levels of milk, is it possible to measure x units of milk just using these buckets and the minimum moves to achieve it.  
+Given n buckets of varying capacities and different starting levels of milk, is it possible to measure x units of milk just using these buckets and the minimum moves to achieve it.
+## Compilation instructions
+Compile and run the source/Main.cpp using a c++ compiler.  
