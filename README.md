@@ -2,4 +2,12 @@
 ## A Bread First search to solve the famous Milk Bucket Problem :
 Given n buckets of varying capacities and different starting levels of milk, is it possible to measure x units of milk just using these buckets and the minimum moves to achieve it.
 ## Compilation instructions
-Compile and run the source/Main.cpp using a c++ compiler.  
+Navigate to the source folder and compile the code using for example gcc on linux:
+```bash
+g++ Main.cpp
+```
+Then run the executable 
+```bash
+./a.out
+```
+To change **Max sizes**, **Number of buckets** or **Number of iterations** edit `include/Main.h`.
