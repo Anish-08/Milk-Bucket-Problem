@@ -11,3 +11,7 @@ Then run the executable
 ./a.out
 ```
 To change **Max sizes**, **Number of buckets** or **Number of iterations** edit `include/Main.h`.
+
+After running the code enter the current milk levels in each bucket.
+
+The out put will show all reachable levels and the minimum moves to reach them.
